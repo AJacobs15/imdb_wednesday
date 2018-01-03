@@ -6,6 +6,10 @@ class Picture < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :actors,
+             :through => :picture_tags,
+             :source => :actor
+
   # Validations
 
 end
