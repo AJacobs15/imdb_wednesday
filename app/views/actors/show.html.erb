@@ -20,3 +20,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Actor has many castings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Castings
+      </li>
+
+      <% @actor.castings.each do |casting| %>
+        <li class="list-group-item">
+          <a href="/castings/<%= casting.id %>">
+            <%= casting.movie_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/castings/<%= casting.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/castings/<%= casting.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_casting/<%= casting.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Actor has many picture_tags -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Picture Tags
+      </li>
+
+      <% @actor.picture_tags.each do |picture_tag| %>
+        <li class="list-group-item">
+          <a href="/picture_tags/<%= picture_tag.id %>">
+            <%= picture_tag.actor_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/picture_tags/<%= picture_tag.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/picture_tags/<%= picture_tag.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_picture_tag/<%= picture_tag.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Actor has many movies -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Movies
+      </li>
+
+      <% @actor.movies.each do |movie| %>
+        <li class="list-group-item">
+          <a href="/movies/<%= movie.id %>">
+            <%= movie.title %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/movies/<%= movie.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/movies/<%= movie.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_movie/<%= movie.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Actor has many pictures -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Pictures
+      </li>
+
+      <% @actor.pictures.each do |picture| %>
+        <li class="list-group-item">
+          <a href="/pictures/<%= picture.id %>">
+            <%= picture.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/pictures/<%= picture.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/pictures/<%= picture.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_picture/<%= picture.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
