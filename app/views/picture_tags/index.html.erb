@@ -17,7 +17,7 @@
       <% @picture_tags.each do |picture_tag| %>
       <tr>
         <td><%= picture_tag.actor.created_at %></td>
-        <td><%= picture_tag.picture_id %></td>
+        <td><%= picture_tag.picture.created_at %></td>
         <td>
           <a href="/picture_tags/<%= picture_tag.id %>" class="btn btn-primary">Show</a>
           <a href="/picture_tags/<%= picture_tag.id %>/edit" class="btn btn-warning">Edit</a>
