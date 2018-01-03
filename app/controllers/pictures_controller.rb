@@ -6,6 +6,7 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @picture_tag = PictureTag.new
     @picture = Picture.find(params[:id])
 
     render("pictures/show.html.erb")

@@ -48,6 +48,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_picture_tag" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for actor_id -->
+      <div class="form-group">
+        <label for="actor_id" class="control-label">
+          Actor
+        </label>
+
+        <%= select_tag(:actor_id, options_from_collection_for_select(Actor.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for picture_id -->
+      <input type="hidden" name="picture_id" value="<%= @picture.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Picture Tag
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

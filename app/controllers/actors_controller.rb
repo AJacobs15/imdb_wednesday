@@ -6,6 +6,8 @@ class ActorsController < ApplicationController
   end
 
   def show
+    @picture_tag = PictureTag.new
+    @casting = Casting.new
     @actor = Actor.find(params[:id])
 
     render("actors/show.html.erb")
