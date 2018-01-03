@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Picture_tag resource:
+  # CREATE
+  get "/picture_tags/new", :controller => "picture_tags", :action => "new"
+  post "/create_picture_tag", :controller => "picture_tags", :action => "create"
+
+  # READ
+  get "/picture_tags", :controller => "picture_tags", :action => "index"
+  get "/picture_tags/:id", :controller => "picture_tags", :action => "show"
+
+  # UPDATE
+  get "/picture_tags/:id/edit", :controller => "picture_tags", :action => "edit"
+  post "/update_picture_tag/:id", :controller => "picture_tags", :action => "update"
+
+  # DELETE
+  get "/delete_picture_tag/:id", :controller => "picture_tags", :action => "destroy"
+  #------------------------------
+
   # Routes for the Picture resource:
   # CREATE
   get "/pictures/new", :controller => "pictures", :action => "new"

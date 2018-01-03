@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @picture_tag.errors.any? %>
+  <% @picture_tag.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Picture Tag #<%= @picture_tag.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_picture_tag/<%= @picture_tag.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for actor_id -->
+      <div class="form-group">
+        <label for="actor_id" class="control-label">
+          Actor
+        </label>
+
+        <input type="text" id="actor_id" name="actor_id" placeholder="Actor" class="form-control" value="<%= @picture_tag.actor_id %>">
+      </div>
+
+      <!-- Label and input for picture_id -->
+      <div class="form-group">
+        <label for="picture_id" class="control-label">
+          Picture
+        </label>
+
+        <input type="text" id="picture_id" name="picture_id" placeholder="Picture" class="form-control" value="<%= @picture_tag.picture_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Picture Tag
+      </button>
+      or
+      <a href="/picture_tags/<%= @picture_tag.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
