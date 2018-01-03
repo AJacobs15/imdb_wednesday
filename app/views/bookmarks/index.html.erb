@@ -16,8 +16,20 @@
 
       <% @bookmarks.each do |bookmark| %>
       <tr>
-        <td><%= bookmark.user.first_name %></td>
-        <td><%= bookmark.movie.title %></td>
+        <td>
+          <% if bookmark.user.present? %>
+            <a href="/users/<%= bookmark.user.id %>">
+              <%= bookmark.user.first_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if bookmark.movie.present? %>
+            <a href="/movies/<%= bookmark.movie.id %>">
+              <%= bookmark.movie.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">Show</a>
           <a href="/bookmarks/<%= bookmark.id %>/edit" class="btn btn-warning">Edit</a>

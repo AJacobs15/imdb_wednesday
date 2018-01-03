@@ -16,8 +16,20 @@
 
       <% @picture_tags.each do |picture_tag| %>
       <tr>
-        <td><%= picture_tag.actor.created_at %></td>
-        <td><%= picture_tag.picture.created_at %></td>
+        <td>
+          <% if picture_tag.actor.present? %>
+            <a href="/actors/<%= picture_tag.actor.id %>">
+              <%= picture_tag.actor.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if picture_tag.picture.present? %>
+            <a href="/pictures/<%= picture_tag.picture.id %>">
+              <%= picture_tag.picture.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/picture_tags/<%= picture_tag.id %>" class="btn btn-primary">Show</a>
           <a href="/picture_tags/<%= picture_tag.id %>/edit" class="btn btn-warning">Edit</a>

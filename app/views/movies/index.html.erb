@@ -21,7 +21,13 @@
         <td><%= movie.title %></td>
         <td><%= movie.description %></td>
         <td><%= movie.duration %></td>
-        <td><%= movie.director.dob %></td>
+        <td>
+          <% if movie.director.present? %>
+            <a href="/directors/<%= movie.director.id %>">
+              <%= movie.director.dob %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/movies/<%= movie.id %>" class="btn btn-primary">Show</a>
           <a href="/movies/<%= movie.id %>/edit" class="btn btn-warning">Edit</a>
