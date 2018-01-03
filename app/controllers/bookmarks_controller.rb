@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = Bookmark.page(params[:page]).per(10)
 
     render("bookmarks/index.html.erb")
   end

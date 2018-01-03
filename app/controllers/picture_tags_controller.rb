@@ -1,6 +1,6 @@
 class PictureTagsController < ApplicationController
   def index
-    @picture_tags = PictureTag.all
+    @picture_tags = PictureTag.page(params[:page]).per(10)
 
     render("picture_tags/index.html.erb")
   end
