@@ -1,6 +1,7 @@
 class ActorsController < ApplicationController
   def index
-    @actors = Actor.page(params[:page]).per(10)
+    @q = Actor.ransack(params[:q])
+    @actors = @q.result(:distinct => true).includes(:castings, :picture_tags, :movies, :pictures).page(params[:page]).per(10)
 
     render("actors/index.html.erb")
   end

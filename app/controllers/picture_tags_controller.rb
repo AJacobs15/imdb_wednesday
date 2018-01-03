@@ -1,6 +1,7 @@
 class PictureTagsController < ApplicationController
   def index
-    @picture_tags = PictureTag.page(params[:page]).per(10)
+    @q = PictureTag.ransack(params[:q])
+    @picture_tags = @q.result(:distinct => true).includes(:actor, :picture).page(params[:page]).per(10)
 
     render("picture_tags/index.html.erb")
   end
