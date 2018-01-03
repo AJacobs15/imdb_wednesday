@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "movies#index"
   # Routes for the Bookmark resource:
   # CREATE
   get "/bookmarks/new", :controller => "bookmarks", :action => "new"
